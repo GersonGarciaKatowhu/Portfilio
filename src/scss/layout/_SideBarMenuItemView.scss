@@ -1,0 +1,72 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+.SideBarMenuItemView{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin: 0% .5rem;
+    a {
+        color: v.$blanco;
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        border-radius: .5rem;
+        -webkit-border-radius: .5rem;
+        -moz-border-radius: .5rem;
+        -ms-border-radius: .5rem;
+        -o-border-radius: .5rem;
+        .ItemContent{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            @include m.transition(width, .3s);
+            &.collapsed{
+                width: 3.5rem;
+            }
+            .icon{
+                width: 3.2rem;
+                height: 3.2rem;
+            }
+            .label{
+                font-weight: v.$regular;
+                margin: 1rem;
+                overflow: hidden;
+            }
+        }
+        &:hover{
+            background-color: v.$azul;
+            color: v.$blanco;
+        }
+        &:hover{
+            & + .tooltip{
+                display: inline-block;
+                animation-duration: .4s;
+                animation-name: tooltip;
+            }
+        }
+    }
+    .tooltip{
+        position: absolute;
+        background-color: v.$negro;
+        left: 7rem;
+        padding: 1rem;
+        border-radius: .4rem;
+        -webkit-border-radius: .4rem;
+        -moz-border-radius: .4rem;
+        -ms-border-radius: .4rem;
+        -o-border-radius: .4rem;
+        text-transform: capitalize;
+        display: none;
+    }
+}
+@keyframes tooltip{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

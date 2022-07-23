@@ -1,0 +1,36 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+.SideBarMenuCardView{
+    text-align: center;
+    .profile{
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        padding: 1rem;
+        box-sizing: border-box;
+        max-width: 12.8rem;
+    }
+    .profileInfo{
+        overflow: hidden;
+        height: 8rem;
+        @include m.transition(height, .3s);
+        &.collapsed{
+            opacity: 0;
+            height: 0;
+        }
+        .name{
+            font-size: 2rem;
+            font-weight: v.$bold;
+        }
+        .url{
+            a{
+                color: v.$azul;
+                &:hover{
+                    color: v.$blanco;
+                }
+            }
+        }
+    }
+}

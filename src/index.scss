@@ -1,0 +1,11 @@
+// base
+@use './scss/base/normalize';
+@use './scss/base/variables';
+@use './scss/base/mixins';
+@use './scss/base/globales';
+@use './scss/base/tipografia';
+//layout
+@use './scss/layout/SideBarMenu';
+@use './scss/layout/main';
+@use './scss/layout/SideBarMenuItemView';
+@use './scss/layout/SideBarMenuCardView';

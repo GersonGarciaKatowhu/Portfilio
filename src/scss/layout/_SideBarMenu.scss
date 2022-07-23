@@ -1,0 +1,42 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+.SideBarMenu{
+    background-color: v.$rojo;
+    color: v.$blanco;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @include m.transition(width, .3s);
+    &.expanded{
+        width: 30rem;
+    }
+    &.collapsed{
+        width: 6.8rem;
+    }
+    .menuButton{
+        display: flex;
+        justify-content: flex-end;
+        .hamburguerIcon{
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            padding: 1rem;
+            width: 6.8rem;
+        }
+    }
+    @include m.tabletMax{
+        visibility: hidden;
+        @include m.transition(visibility, .3s);
+        @include m.transition(width, .3s);
+        .menuButton{
+            visibility: visible;
+        }
+        &.expanded{
+            visibility: visible;
+            width: 100%;
+        }
+    }
+}
